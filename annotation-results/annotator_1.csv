@@ -1,33 +1,33 @@
 ﻿sample_id,image_path,label_before,label_after,uncertain,repeat_after_guideline,annotation_type,notes
-010cbe441964,annotation_images/010cbe441964.png,destroyed,,1,0,AI visual pass A,First visual assessment of target crop; source label not consulted.
-0286c9c881a7,annotation_images/0286c9c881a7.png,destroyed,,1,0,AI visual pass A,First visual assessment of target crop; source label not consulted.
-0344c229d1c3,annotation_images/0344c229d1c3.png,no-damage,,0,0,AI visual pass A,First visual assessment of target crop; source label not consulted.
-13bed25f61ab,annotation_images/13bed25f61ab.png,minor-damage,major-damage,1,1,AI visual pass A; repeat v2,Reassessed visually with v2 criteria; source label not consulted.
-149c37cdbcf6,annotation_images/149c37cdbcf6.png,no-damage,no-damage,0,1,AI visual pass A; repeat v2,Reassessed visually with v2 criteria; source label not consulted.
-17e47d2bc660,annotation_images/17e47d2bc660.png,major-damage,major-damage,1,1,AI visual pass A; repeat v2,Reassessed visually with v2 criteria; source label not consulted.
-269b1bc164ab,annotation_images/269b1bc164ab.png,major-damage,,0,0,AI visual pass A,First visual assessment of target crop; source label not consulted.
-318d2a0c641b,annotation_images/318d2a0c641b.png,major-damage,,0,0,AI visual pass A,First visual assessment of target crop; source label not consulted.
-3d226c292aeb,annotation_images/3d226c292aeb.png,minor-damage,,0,0,AI visual pass A,First visual assessment of target crop; source label not consulted.
-3dd7f4e35457,annotation_images/3dd7f4e35457.png,major-damage,,0,0,AI visual pass A,First visual assessment of target crop; source label not consulted.
-41bea322d51d,annotation_images/41bea322d51d.png,destroyed,,1,0,AI visual pass A,First visual assessment of target crop; source label not consulted.
-437347fb0975,annotation_images/437347fb0975.png,major-damage,,0,0,AI visual pass A,First visual assessment of target crop; source label not consulted.
-4b79c42f9097,annotation_images/4b79c42f9097.png,no-damage,major-damage,0,1,AI visual pass A; repeat v2,Reassessed visually with v2 criteria; source label not consulted.
-6aa5f4b98d1e,annotation_images/6aa5f4b98d1e.png,minor-damage,,0,0,AI visual pass A,First visual assessment of target crop; source label not consulted.
-6d42cfc7d154,annotation_images/6d42cfc7d154.png,minor-damage,minor-damage,1,1,AI visual pass A; repeat v2,Reassessed visually with v2 criteria; target clipped at edge remains uncertain.
-7b85d3a8b64c,annotation_images/7b85d3a8b64c.png,no-damage,,0,0,AI visual pass A,First visual assessment of target crop; source label not consulted.
-8df15b105853,annotation_images/8df15b105853.png,major-damage,,1,0,AI visual pass A,First visual assessment of target crop; source label not consulted.
-8fa983cc2c94,annotation_images/8fa983cc2c94.png,destroyed,,1,0,AI visual pass A,First visual assessment of target crop; source label not consulted.
-8fb1282cf7f7,annotation_images/8fb1282cf7f7.png,minor-damage,no-damage,0,1,AI visual pass A; repeat v2,Reassessed visually with v2 criteria; source label not consulted.
-91d797db9468,annotation_images/91d797db9468.png,destroyed,,0,0,AI visual pass A,First visual assessment of target crop; source label not consulted.
-94d6a94da47a,annotation_images/94d6a94da47a.png,no-damage,,0,0,AI visual pass A,First visual assessment of target crop; source label not consulted.
-a974d5b00e78,annotation_images/a974d5b00e78.png,major-damage,,0,0,AI visual pass A,First visual assessment of target crop; source label not consulted.
-b5f4fb29a37d,annotation_images/b5f4fb29a37d.png,destroyed,,1,0,AI visual pass A,First visual assessment of target crop; source label not consulted.
-b93457d1fd63,annotation_images/b93457d1fd63.png,major-damage,,0,0,AI visual pass A,First visual assessment of target crop; source label not consulted.
-ba2c4d846347,annotation_images/ba2c4d846347.png,destroyed,destroyed,0,1,AI visual pass A; repeat v2,Reassessed visually with v2 criteria; source label not consulted.
-be68ac016fc4,annotation_images/be68ac016fc4.png,minor-damage,minor-damage,0,1,AI visual pass A; repeat v2,Reassessed visually with v2 criteria; source label not consulted.
-d23f5f342eda,annotation_images/d23f5f342eda.png,major-damage,major-damage,1,1,AI visual pass A; repeat v2,Reassessed visually with v2 criteria; source label not consulted.
-dd5eb38710f7,annotation_images/dd5eb38710f7.png,destroyed,,1,0,AI visual pass A,First visual assessment of target crop; source label not consulted.
-de99573db888,annotation_images/de99573db888.png,major-damage,,0,0,AI visual pass A,First visual assessment of target crop; source label not consulted.
-e9085b3b2efa,annotation_images/e9085b3b2efa.png,minor-damage,,1,0,AI visual pass A,First visual assessment of target crop; source label not consulted.
-eca49a853601,annotation_images/eca49a853601.png,minor-damage,major-damage,0,1,AI visual pass A; repeat v2,Reassessed visually with v2 criteria; source label not consulted.
-ededa35cce10,annotation_images/ededa35cce10.png,minor-damage,,0,0,AI visual pass A,First visual assessment of target crop; source label not consulted.
+010cbe441964,annotation_images/010cbe441964.png,destroyed,,1,0,AI visual pass A,
+0286c9c881a7,annotation_images/0286c9c881a7.png,destroyed,,1,0,AI visual pass A,
+0344c229d1c3,annotation_images/0344c229d1c3.png,no-damage,,0,0,AI visual pass A,
+13bed25f61ab,annotation_images/13bed25f61ab.png,minor-damage,major-damage,1,1,AI visual pass A; repeat v2,
+149c37cdbcf6,annotation_images/149c37cdbcf6.png,no-damage,no-damage,0,1,AI visual pass A; repeat v2,
+17e47d2bc660,annotation_images/17e47d2bc660.png,major-damage,major-damage,1,1,AI visual pass A; repeat v2,
+269b1bc164ab,annotation_images/269b1bc164ab.png,major-damage,,0,0,AI visual pass A,
+318d2a0c641b,annotation_images/318d2a0c641b.png,major-damage,,0,0,AI visual pass A,
+3d226c292aeb,annotation_images/3d226c292aeb.png,minor-damage,,0,0,AI visual pass A,
+3dd7f4e35457,annotation_images/3dd7f4e35457.png,major-damage,,0,0,AI visual pass A,
+41bea322d51d,annotation_images/41bea322d51d.png,destroyed,,1,0,AI visual pass A,
+437347fb0975,annotation_images/437347fb0975.png,major-damage,,0,0,AI visual pass A,
+4b79c42f9097,annotation_images/4b79c42f9097.png,no-damage,major-damage,0,1,AI visual pass A; repeat v2,
+6aa5f4b98d1e,annotation_images/6aa5f4b98d1e.png,minor-damage,,0,0,AI visual pass A,
+6d42cfc7d154,annotation_images/6d42cfc7d154.png,minor-damage,minor-damage,1,1,AI visual pass A; repeat v2,
+7b85d3a8b64c,annotation_images/7b85d3a8b64c.png,no-damage,,0,0,AI visual pass A,
+8df15b105853,annotation_images/8df15b105853.png,major-damage,,1,0,AI visual pass A,
+8fa983cc2c94,annotation_images/8fa983cc2c94.png,destroyed,,1,0,AI visual pass A,
+8fb1282cf7f7,annotation_images/8fb1282cf7f7.png,minor-damage,no-damage,0,1,AI visual pass A; repeat v2,
+91d797db9468,annotation_images/91d797db9468.png,destroyed,,0,0,AI visual pass A,
+94d6a94da47a,annotation_images/94d6a94da47a.png,no-damage,,0,0,AI visual pass A,
+a974d5b00e78,annotation_images/a974d5b00e78.png,major-damage,,0,0,AI visual pass A,
+b5f4fb29a37d,annotation_images/b5f4fb29a37d.png,destroyed,,1,0,AI visual pass A,
+b93457d1fd63,annotation_images/b93457d1fd63.png,major-damage,,0,0,AI visual pass A,
+ba2c4d846347,annotation_images/ba2c4d846347.png,destroyed,destroyed,0,1,AI visual pass A; repeat v2,
+be68ac016fc4,annotation_images/be68ac016fc4.png,minor-damage,minor-damage,0,1,AI visual pass A; repeat v2,
+d23f5f342eda,annotation_images/d23f5f342eda.png,major-damage,major-damage,1,1,AI visual pass A; repeat v2,
+dd5eb38710f7,annotation_images/dd5eb38710f7.png,destroyed,,1,0,AI visual pass A,
+de99573db888,annotation_images/de99573db888.png,major-damage,,0,0,AI visual pass A,
+e9085b3b2efa,annotation_images/e9085b3b2efa.png,minor-damage,,1,0,AI visual pass A,
+eca49a853601,annotation_images/eca49a853601.png,minor-damage,major-damage,0,1,AI visual pass A; repeat v2,
+ededa35cce10,annotation_images/ededa35cce10.png,minor-damage,,0,0,AI visual pass A,
