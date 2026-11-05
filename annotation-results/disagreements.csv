@@ -1,0 +1,11 @@
+sample_id,annotator_1_label_pre,annotator_2_label_pre,annotator_1_label_post,annotator_2_label_post,uncertain_annotator_1,uncertain_annotator_2,selected_for_repeat,reason
+13bed25f61ab,minor-damage,destroyed,major-damage,major-damage,1,1,1,Ambiguous structural loss versus remaining roof
+149c37cdbcf6,no-damage,minor-damage,no-damage,no-damage,0,0,1,Intact bright roof versus possible roof damage
+17e47d2bc660,major-damage,destroyed,major-damage,destroyed,1,1,1,Target is small and partly obscured; partial loss versus near-total loss
+4b79c42f9097,no-damage,destroyed,major-damage,major-damage,0,1,1,Target lies in complex built/parking scene; object boundary and damage unclear
+6d42cfc7d154,minor-damage,destroyed,minor-damage,minor-damage,1,1,1,Target is partly clipped at image edge
+8fb1282cf7f7,minor-damage,no-damage,no-damage,no-damage,0,0,1,White roof integrity and possible localized damage
+ba2c4d846347,destroyed,major-damage,destroyed,major-damage,0,1,1,Small target amid debris/bright objects
+be68ac016fc4,minor-damage,major-damage,minor-damage,minor-damage,0,1,1,Long narrow roof; local versus substantial loss
+d23f5f342eda,major-damage,destroyed,major-damage,destroyed,1,1,1,Dark/green occlusion makes remaining structure difficult to assess
+eca49a853601,minor-damage,major-damage,major-damage,major-damage,0,1,1,Complex roof outline and visible structural condition

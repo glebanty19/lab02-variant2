@@ -1,0 +1,11 @@
+﻿sample_id,image_path,label_before,label_after,uncertain,repeat_after_guideline,annotation_type,notes
+13bed25f61ab,annotation_images/13bed25f61ab.png,minor-damage,major-damage,1,1,AI visual pass A; repeat v2,Reassessed visually with v2 criteria; source label not consulted.
+149c37cdbcf6,annotation_images/149c37cdbcf6.png,no-damage,no-damage,0,1,AI visual pass A; repeat v2,Reassessed visually with v2 criteria; source label not consulted.
+17e47d2bc660,annotation_images/17e47d2bc660.png,major-damage,major-damage,1,1,AI visual pass A; repeat v2,Reassessed visually with v2 criteria; source label not consulted.
+4b79c42f9097,annotation_images/4b79c42f9097.png,no-damage,major-damage,0,1,AI visual pass A; repeat v2,Reassessed visually with v2 criteria; source label not consulted.
+6d42cfc7d154,annotation_images/6d42cfc7d154.png,minor-damage,minor-damage,1,1,AI visual pass A; repeat v2,Reassessed visually with v2 criteria; target clipped at edge remains uncertain.
+8fb1282cf7f7,annotation_images/8fb1282cf7f7.png,minor-damage,no-damage,0,1,AI visual pass A; repeat v2,Reassessed visually with v2 criteria; source label not consulted.
+ba2c4d846347,annotation_images/ba2c4d846347.png,destroyed,destroyed,0,1,AI visual pass A; repeat v2,Reassessed visually with v2 criteria; source label not consulted.
+be68ac016fc4,annotation_images/be68ac016fc4.png,minor-damage,minor-damage,0,1,AI visual pass A; repeat v2,Reassessed visually with v2 criteria; source label not consulted.
+d23f5f342eda,annotation_images/d23f5f342eda.png,major-damage,major-damage,1,1,AI visual pass A; repeat v2,Reassessed visually with v2 criteria; source label not consulted.
+eca49a853601,annotation_images/eca49a853601.png,minor-damage,major-damage,0,1,AI visual pass A; repeat v2,Reassessed visually with v2 criteria; source label not consulted.

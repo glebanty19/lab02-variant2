@@ -1,0 +1,17 @@
+sample_id,uncertain_annotator_1,uncertain_annotator_2,reason
+010cbe441964,1,1,Target is small amid disturbed ground and nearby bright debris.
+0286c9c881a7,1,1,Target is small near a dark water/shore area and its structure is difficult to resolve.
+13bed25f61ab,1,1,Low visual detail makes the amount of remaining roof and structural loss ambiguous.
+17e47d2bc660,1,1,Long narrow target is partly obscured by vegetation and image-edge context.
+41bea322d51d,1,1,Target outline is partly clipped at the upper image edge.
+4b79c42f9097,0,1,Target lies in a visually complex parking or built area and its boundary is unclear.
+6d42cfc7d154,1,1,Target is partly clipped by the image boundary.
+8df15b105853,1,1,Target is partly clipped at the left edge and nearby trees obscure its condition.
+8fa983cc2c94,1,1,Target is small in a disturbed open area and residual structure is difficult to distinguish.
+b5f4fb29a37d,1,1,Dark vegetation or shadow obscures the target and makes structure difficult to assess.
+ba2c4d846347,0,1,Small target is difficult to distinguish from nearby bright objects and debris.
+be68ac016fc4,0,1,Long narrow target has limited visible detail for separating localized and major damage.
+d23f5f342eda,1,1,Dark green occlusion prevents confident assessment of remaining structure.
+dd5eb38710f7,1,1,Small target is close to a larger bright structure and partly obscured by vegetation.
+e9085b3b2efa,1,1,Small target is partly obscured by tree cover and low-resolution detail.
+eca49a853601,0,1,Complex building outline and adjacent water/vegetation make damage extent ambiguous.

@@ -1,0 +1,5 @@
+﻿annotator_1\annotator_2,no-damage,minor-damage,major-damage,destroyed
+no-damage,2,0,0,0
+minor-damage,0,2,0,0
+major-damage,0,0,3,2
+destroyed,0,0,1,0
