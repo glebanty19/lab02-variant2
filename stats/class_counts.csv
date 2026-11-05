@@ -1,0 +1,4 @@
+split,no-damage,minor-damage,major-damage,destroyed
+test,6,6,6,6
+train,12,12,12,12
+val,6,6,6,6

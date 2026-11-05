@@ -1,0 +1,5 @@
+split,scene,count
+test,hurricane-florence,24
+train,hurricane-harvey,24
+train,hurricane-matthew,24
+val,hurricane-michael,24
