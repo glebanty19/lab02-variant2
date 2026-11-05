@@ -1,4 +1,6 @@
 images/
+annotation_images/
+annotation_packet.zip
 train_images_labels_targets.tar
 __pycache__/
 *.py[cod]

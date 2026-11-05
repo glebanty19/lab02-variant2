@@ -75,6 +75,55 @@ def same_scene_neighbor_rate(train: pd.DataFrame, other: pd.DataFrame) -> float:
     return float(other["scene"].astype(str).isin(set(train["scene"].astype(str))).mean())
 
 
+def load_annotation_results(path: Path) -> pd.DataFrame:
+    if path.is_dir():
+        annotator_frames = []
+        for number in (1, 2):
+            file_path = path / f"annotator_{number}.csv"
+            frame = pd.read_csv(file_path, dtype={"sample_id": str})
+            required = {
+                "sample_id",
+                "label_before",
+                "label_after",
+                "repeat_after_guideline",
+            }
+            missing = sorted(required - set(frame.columns))
+            if missing:
+                raise ValueError(f"{file_path}: відсутні стовпці {missing}")
+            if frame["sample_id"].isna().any() or frame["sample_id"].duplicated().any():
+                raise ValueError(f"{file_path}: sample_id має бути унікальним і заповненим.")
+            annotator_frames.append(frame.set_index("sample_id"))
+        first, second = annotator_frames
+        if set(first.index) != set(second.index):
+            raise ValueError("CSV анотаторів містять різні sample_id.")
+        if not first["repeat_after_guideline"].equals(second["repeat_after_guideline"]):
+            raise ValueError("Файли анотаторів мають різні repeat_after_guideline.")
+        paired = pd.DataFrame(
+            {
+                "annotator_1_pre": first["label_before"],
+                "annotator_2_pre": second["label_before"],
+                "annotator_1_post": first["label_after"],
+                "annotator_2_post": second["label_after"],
+                "repeat_after_guideline": first["repeat_after_guideline"],
+            }
+        ).reset_index()
+        for column in (
+            "annotator_1_pre",
+            "annotator_2_pre",
+            "annotator_1_post",
+            "annotator_2_post",
+        ):
+            invalid = sorted(
+                set(paired[column].dropna().astype(str))
+                - set(CLASSES)
+                - {""}
+            )
+            if invalid:
+                raise ValueError(f"Недопустимі мітки у {column}: {invalid}")
+        return paired
+    return pd.read_csv(path)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("manifest", type=Path, help="Path to manifest.csv")
@@ -140,7 +189,7 @@ def main() -> None:
     report_agreement(df, "label_ann1", "label_ann2", "Узгодженість до уточнення")
     report_agreement(df, "label_ann1_v2", "label_ann2_v2", "Узгодженість після уточнення")
     if args.annotations:
-        annotations = pd.read_csv(args.annotations)
+        annotations = load_annotation_results(args.annotations)
         report_agreement(
             annotations, "annotator_1_pre", "annotator_2_pre",
             "Незалежне анотування до уточнення",

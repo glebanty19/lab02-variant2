@@ -9,10 +9,11 @@ import hashlib
 import io
 import json
 import re
+import secrets
 import tarfile
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageDraw
 
 CLASSES = ("destroyed", "major-damage", "minor-damage", "no-damage")
 SPLITS = {
@@ -38,6 +39,14 @@ def polygon_bounds(wkt: str) -> tuple[float, float, float, float] | None:
     points = [(float(coords[i]), float(coords[i + 1])) for i in range(0, len(coords), 2)]
     xs, ys = zip(*points)
     return min(xs), min(ys), max(xs), max(ys)
+
+
+def polygon_points(wkt: str) -> list[tuple[float, float]]:
+    coords = re.findall(r"[-+]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][-+]?\d+)?", wkt)
+    return [
+        (float(coords[i]), float(coords[i + 1]))
+        for i in range(0, len(coords), 2)
+    ]
 
 
 def crop_origin(bounds: tuple[float, float, float, float]) -> tuple[int, int] | None:
@@ -135,8 +144,10 @@ def select_candidates(candidates: dict[str, list[dict]]) -> list[dict]:
 def extract_patches(archive: Path, selected: list[dict], output_dir: Path) -> None:
     by_image = {item["image_name"]: item for item in selected}
     images_dir = output_dir / "images"
+    annotation_images_dir = output_dir / "annotation_images"
     labels_dir = output_dir / "labels"
     images_dir.mkdir(parents=True, exist_ok=True)
+    annotation_images_dir.mkdir(parents=True, exist_ok=True)
     labels_dir.mkdir(parents=True, exist_ok=True)
     pending = set(by_image)
     rows = []
@@ -220,6 +231,8 @@ def extract_patches(archive: Path, selected: list[dict], output_dir: Path) -> No
         writer = csv.DictWriter(file, fieldnames=list(source_annotations[0]))
         writer.writeheader()
         writer.writerows(source_annotations)
+    labels_by_tile = {row["tile_id"]: row["label"] for row in rows}
+    scenes_by_tile = {row["tile_id"]: row["scene"] for row in rows}
     queue_rows = []
     for label in CLASSES:
         for event in SPLITS:
@@ -229,8 +242,8 @@ def extract_patches(archive: Path, selected: list[dict], output_dir: Path) -> No
             for row in event_rows[:2]:
                 queue_rows.append(
                     {
+                        "sample_id": secrets.token_hex(6),
                         "tile_id": row["tile_id"],
-                        "image_path": row["image_path"],
                         "annotator_1_pre": "",
                         "annotator_2_pre": "",
                         "annotator_1_post": "",
@@ -242,6 +255,7 @@ def extract_patches(archive: Path, selected: list[dict], output_dir: Path) -> No
                 )
     labels_by_tile = {row["tile_id"]: row["label"] for row in rows}
     repeat_ids = set()
+    queue_rows.sort(key=lambda row: row["sample_id"])
     for label in CLASSES:
         matching = [
             row["tile_id"]
@@ -260,23 +274,55 @@ def extract_patches(archive: Path, selected: list[dict], output_dir: Path) -> No
         )
     for row in queue_rows:
         row["repeat_after_guideline"] = int(row["tile_id"] in repeat_ids)
+        row["image_path"] = f"annotation_images/{row['sample_id']}.png"
+        source_row = next(item for item in rows if item["tile_id"] == row["tile_id"])
+        annotation_image = Image.open(output_dir / source_row["image_path"]).convert("RGB")
+        points = [
+            (round(x - source_row["x"]), round(y - source_row["y"]))
+            for x, y in polygon_points(
+                next(item["source_polygon_wkt"] for item in source_annotations
+                     if item["tile_id"] == row["tile_id"])
+            )
+        ]
+        if len(points) >= 3:
+            ImageDraw.Draw(annotation_image).line(
+                points + [points[0]], fill=(0, 255, 255), width=2
+            )
+        annotation_image.save(output_dir / row["image_path"], format="PNG")
     with (labels_dir / "double_annotation_queue.csv").open(
         "w", newline="", encoding="utf-8-sig"
     ) as file:
-        writer = csv.DictWriter(file, fieldnames=list(queue_rows[0]))
+        writer = csv.DictWriter(
+            file,
+            fieldnames=[
+                "sample_id",
+                "image_path",
+                "annotator_1_pre",
+                "annotator_2_pre",
+                "annotator_1_post",
+                "annotator_2_post",
+                "uncertain",
+                "repeat_after_guideline",
+                "arbitrated_label",
+            ],
+            extrasaction="ignore",
+        )
         writer.writeheader()
         writer.writerows(queue_rows)
     with (labels_dir / "source_annotation_key.csv").open(
         "w", newline="", encoding="utf-8-sig"
     ) as file:
-        writer = csv.DictWriter(file, fieldnames=["tile_id", "source_label"])
+        writer = csv.DictWriter(
+            file,
+            fieldnames=["sample_id", "tile_id", "source_label", "scene"],
+        )
         writer.writeheader()
         writer.writerows(
             {
+                "sample_id": queue_row["sample_id"],
                 "tile_id": queue_row["tile_id"],
-                "source_label": next(
-                    row["label"] for row in rows if row["tile_id"] == queue_row["tile_id"]
-                ),
+                "source_label": labels_by_tile[queue_row["tile_id"]],
+                "scene": scenes_by_tile[queue_row["tile_id"]],
             }
             for queue_row in queue_rows
         )
